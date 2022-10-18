@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main{
 	
@@ -21,6 +22,29 @@ public class Main{
 
 		return result;
 	}
+	/*
+	public static void test1(Calculator calculator){
+		boolean resultOfTest = true;
+		for (String digit1 : calculator.digits){
+			for (String digit2 : calculator.digits){
+				String input = digit1+calculator.allowedOperator[0]+digit2;
+				String result = calculator.calcExpretion(input);
+				if (Integer.parseInt(digit1) + Integer.parseInt(digit2) != Integer.parseInt(result)){
+					resultOfTest = false;
+				}
+			}
+		}
+		for (String digit1 : calculator.digits){
+			for (String digit2 : calculator.digits){
+				String input = digit1+"  "+calculator.allowedOperator[1]+digit2+"  ";
+				String result = calculator.calcExpretion(input);
+				if (Integer.parseInt(digit1) - Integer.parseInt(digit2) != Integer.parseInt(result)){
+					resultOfTest = false;
+				}
+			}
+		}
+		System.out.println("Result of test1 is - "+resultOfTest);
+	}*/
 }
 
 
@@ -113,10 +137,16 @@ class Calculator{
 
 	private boolean hasOneOperator(String expretion){
 		int operatorCounter = 0;
-		for (String operator : this.allowedOperator){
-			if (expretion.indexOf(operator) != -1){
-				operatorCounter += 1;
+		for (int i=0; i<expretion.length();i++){
+
+			String tmpSimbol = Character.toString(expretion.charAt(i));
+
+			for (int j=0; j<this.allowedOperator.length;j++){
+				if (tmpSimbol.equals(this.allowedOperator[j])){
+					operatorCounter += 1;
+				}
 			}
+				
 		}
 		if (operatorCounter == 1){
 			return true;
