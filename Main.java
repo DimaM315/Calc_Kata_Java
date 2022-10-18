@@ -72,10 +72,7 @@ class Calculator{
 	}
 
 	private boolean checkCorrectExpretion(String expretion){
-		if (this.hasOneOperator(expretion) && this.hasOnlyTwoOperands(expretion)){
-			return true;
-		}
-		return false;
+		return this.hasOneOperator(expretion) && this.hasOnlyTwoOperands(expretion);
 	}
 
 	private boolean hasOnlyTwoOperands(String expretion){
@@ -125,14 +122,16 @@ class Calculator{
 			}
 				
 		}
-		if (operatorCounter == 1){
-			return true;
-		}
-		return false;
+		return (operatorCounter == 1);
 	}
 
 	private String replaceRomanicToArabic(String expretion){
 		// There we know that expretion have two same type operands.
+		expretion = expretion.replaceAll(this.romeSimbols[8], this.digits[8]);
+		expretion = expretion.replaceAll(this.romeSimbols[7], this.digits[7]);
+		expretion = expretion.replaceAll(this.romeSimbols[6], this.digits[6]);
+		expretion = expretion.replaceAll(this.romeSimbols[3], this.digits[3]);
+		expretion = expretion.replaceAll(this.romeSimbols[2], this.digits[2]);
 		for (int i=this.digits.length-1;i>=0;i--){
 			if (expretion.indexOf(this.romeSimbols[i]) != -1){
 				expretion = expretion.replaceAll(this.romeSimbols[i], this.digits[i]);
@@ -152,6 +151,7 @@ class Calculator{
 	}
 
 	private String convertArabicToRome(int arabicInt){
+		System.out.println(arabicInt);
 		String result = "";
 		while(arabicInt != 0){
 			if (arabicInt >= 50){
