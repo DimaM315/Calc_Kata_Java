@@ -22,29 +22,6 @@ public class Main{
 
 		return result;
 	}
-	/*
-	public static void test1(Calculator calculator){
-		boolean resultOfTest = true;
-		for (String digit1 : calculator.digits){
-			for (String digit2 : calculator.digits){
-				String input = digit1+calculator.allowedOperator[0]+digit2;
-				String result = calculator.calcExpretion(input);
-				if (Integer.parseInt(digit1) + Integer.parseInt(digit2) != Integer.parseInt(result)){
-					resultOfTest = false;
-				}
-			}
-		}
-		for (String digit1 : calculator.digits){
-			for (String digit2 : calculator.digits){
-				String input = digit1+"  "+calculator.allowedOperator[1]+digit2+"  ";
-				String result = calculator.calcExpretion(input);
-				if (Integer.parseInt(digit1) - Integer.parseInt(digit2) != Integer.parseInt(result)){
-					resultOfTest = false;
-				}
-			}
-		}
-		System.out.println("Result of test1 is - "+resultOfTest);
-	}*/
 }
 
 
